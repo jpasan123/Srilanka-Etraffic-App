@@ -47,6 +47,15 @@ export default function Hero() {
               Learn More
             </button>
           </div>
+
+          {/* Download Information */}
+          <div className="mt-8 max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-6 animate-slideUp animate-delay-400">
+            <p className="text-gray-200 leading-relaxed">
+              After downloading this eTraffic Mobile App and installing it on your Mobile Phone, you can sign in through your Google Account and use the Sri Lanka Police eTraffic Mobile App. Please note that this is an effort we have made for your own safety. 
+            </p>
+            <p>Thank you!</p>
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200 animate-gradient"></div>
+          </div>
         </div>
       </div>
 

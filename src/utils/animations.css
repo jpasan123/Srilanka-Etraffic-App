@@ -43,6 +43,18 @@
   100% { background-position: 1000px 0; }
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Animation utility classes */
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
@@ -80,6 +92,11 @@
 
 .animate-delay-300 {
   animation-delay: 300ms;
+}
+
+.animate-gradient {
+  animation: gradient 8s linear infinite;
+  background-size: 200% 200%;
 }
 
 /* Hover animations */

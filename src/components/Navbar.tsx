@@ -1,9 +1,11 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Logo from './Logo';
+import FeedbackModal from './feedback/FeedbackModal';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   return (
     <nav className="bg-navy-800 fixed w-full z-50">
@@ -19,6 +21,12 @@ export default function Navbar() {
                 <a href="#features" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</a>
                 <a href="#download" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Download</a>
                 <a href="#contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                <button 
+                  onClick={() => setIsFeedbackOpen(true)}
+                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Feedback
+                </button>
               </div>
             </div>
           </div>
@@ -40,9 +48,20 @@ export default function Navbar() {
             <a href="#features" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
             <a href="#download" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Download</a>
             <a href="#contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            <button 
+              onClick={() => setIsFeedbackOpen(true)}
+              className="text-gray-300 hover:text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium"
+            >
+              Feedback
+            </button>
           </div>
         </div>
       )}
+
+      <FeedbackModal 
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+      />
     </nav>
   );
 }
