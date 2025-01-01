@@ -14,7 +14,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <p>Police Headquarters</p>
             <p>Colombo 01, Sri Lanka</p>
-            <p>Email: support@etraffic.police.lk</p>
+            <p>Email: etraffic@police.gov.lk</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
