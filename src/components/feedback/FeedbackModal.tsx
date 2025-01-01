@@ -1,4 +1,5 @@
 import { X } from 'lucide-react';
+import { useState } from 'react';
 
 interface FeedbackModalProps {
   isOpen: boolean;
@@ -6,12 +7,41 @@ interface FeedbackModalProps {
 }
 
 export default function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
+  const [formData, setFormData] = useState({
+    type: 'bug',
+    message: '',
+    email: ''
+  });
+
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle feedback submission here
-    onClose();
+    
+    try {
+      // Create mailto link with feedback content
+      const subject = `eTraffic Feedback: ${formData.type}`;
+      const body = `
+Type: ${formData.type}
+Message: ${formData.message}
+From: ${formData.email || 'Anonymous'}
+      `.trim();
+      
+      window.location.href = `mailto:etraffic@police.gov.lk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Close modal after sending
+      onClose();
+      
+      // Reset form
+      setFormData({
+        type: 'bug',
+        message: '',
+        email: ''
+      });
+    } catch (error) {
+      console.error('Error sending feedback:', error);
+      alert('There was an error sending your feedback. Please try again.');
+    }
   };
 
   return (
@@ -39,9 +69,11 @@ export default function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             </label>
             <select
               id="type"
+              value={formData.type}
+              onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value }))}
               className="w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
             >
-              <option value="bug">Regarding the mobile app</option>
+              <option value="bug">Regarding the Mobile App</option>
               <option value="feature">Feature Request</option>
               <option value="improvement">Improvement Suggestion</option>
               <option value="other">Other</option>
@@ -54,6 +86,8 @@ export default function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             </label>
             <textarea
               id="message"
+              value={formData.message}
+              onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
               rows={4}
               className="w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
               placeholder="Please describe your feedback in detail..."
@@ -68,6 +102,8 @@ export default function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             <input
               type="email"
               id="email"
+              value={formData.email}
+              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
               className="w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
               placeholder="For follow-up responses"
             />
