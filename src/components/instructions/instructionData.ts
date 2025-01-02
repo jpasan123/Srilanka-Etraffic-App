@@ -9,7 +9,7 @@ export const instructionCategories = [
           },
           {
             title: "Create account / Join with your Google account",
-            description: "Sign up using your email address or phone number. Verify your identity to ensure secure access to all features.",
+            description: "Sign up using your email address . Verify your identity to ensure secure access to all features.",
             image: "https://i.ibb.co/BGyPc11/Screenshot-2024-12-31-17-52-40-127-com-example-etraffic-police-app.jpg"
           },
           {
