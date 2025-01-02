@@ -21,8 +21,8 @@ export default function Features() {
           />
           <FeatureCard
             icon={<FileText className="h-8 w-8 text-cyan-600" />}
-            title="Ease of taking action for police violation"
-            description="The police are able to take action as quickly as possible for the violation."
+            title="Ease of taking action "
+            description="Ability to initiate Actions by the relevant police station."
             delay="300"
           />
         </div>
