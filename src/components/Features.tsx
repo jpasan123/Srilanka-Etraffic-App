@@ -15,8 +15,8 @@ export default function Features() {
           />
           <FeatureCard
             icon={<AlertTriangle className="h-8 w-8 text-cyan-600" />}
-            title="Capture the viloation photos & videos"
-            description="Ability to take photos and videos related to the violation."
+            title="Capture the photos and videos"
+            description="Ability to take photos and videos related to the traffic violation."
             delay="200"
           />
           <FeatureCard
