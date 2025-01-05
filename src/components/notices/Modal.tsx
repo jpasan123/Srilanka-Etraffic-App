@@ -17,7 +17,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
         onClick={onClose}
       />
       
-      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 my-8 animate-modalSlide">
+      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-2xl animate-modalSlide">
         <div className="flex items-center justify-between p-4 sm:p-6 border-b">
           <h2 className="text-xl sm:text-2xl font-semibold text-navy-800">{title}</h2>
           <button 
@@ -28,7 +28,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
           </button>
         </div>
 
-        <div className="p-4 sm:p-6 max-h-[calc(100vh-16rem)] overflow-y-auto">
+        <div className="p-4 sm:p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
           {children}
         </div>
 
