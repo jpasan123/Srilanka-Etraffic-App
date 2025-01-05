@@ -34,7 +34,7 @@ export default function Hero() {
           <p className="text-xl text-gray-300 mb-8 animate-slideUp animate-delay-200">
             Streamline your traffic-related services with our official mobile application
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fadeIn animate-delay-300">
+          <div id="download" className="flex flex-col sm:flex-row justify-center gap-4 animate-fadeIn animate-delay-300">
             <button 
               onClick={handleDownload}
               className="bg-cyan-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center justify-center hover-glow"
